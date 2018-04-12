@@ -1,0 +1,40 @@
+<html xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/table.css" />
+    <title>Menu Page</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/greeting">Greeting Page</a></li>
+            <li><a href="/show">Songs</a></li>
+            <li><a href="/top">Top 20 Ranking</a></li>
+        </ul>
+    </nav>
+    <div>
+        <form action="#" th:action="@{/}" th:object="${search}">
+            <div class="banner">
+                <input type="text" name="search" id="search" placeholder="Search..">
+            </div>
+            <div th:if="${not #lists.isEmpty(search)}" align="center">
+                <table id="hor-minimalist-b">
+                    <tr>
+                        <th>Song Name</th>
+                        <th>Performer</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr th:each ="search : ${search}">
+                        <td th:utext = "${search.name}"></td>
+                        <td th:utext = "${search.performer}"></td>
+                        <td th:utext = "${search.description}"></td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

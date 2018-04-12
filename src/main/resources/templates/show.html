@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Song Overview</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/table.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/greeting">Greeting Page</a></li>
+            <li><a href="/show">Songs</a></li>
+            <li><a href="/top">Top 20 Ranking</a></li>
+        </ul>
+    </nav>
+    <div align="center">
+        <table id="hor-minimalist-b">
+            <tr>
+                <th>Song Name</th>
+                <th>Performer</th>
+                <th>Description</th>
+            </tr>
+            <tr th:each ="song : ${songs}">
+                <td th:utext = "${song.name}"></td>
+                <td th:utext = "${song.performer}"></td>
+                <td th:utext = "${song.description}"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

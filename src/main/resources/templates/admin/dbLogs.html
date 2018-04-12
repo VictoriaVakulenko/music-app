@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Base Logs</title>
+    <link rel="stylesheet" href="/css/table.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+</head>
+<body>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/admin">Manage Users</a>
+    <a href="/admin/content">Manage Content</a>
+    <a href="/admin/db">DB logs</a>
+</div>
+
+<br/>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+<div id="main"></div>
+<script type="text/javascript" th:src="@{/js/menu.js}"></script>
+</body>
+</html>

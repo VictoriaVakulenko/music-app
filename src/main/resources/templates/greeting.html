@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/greeting">Greeting Page</a></li>
+            <li><a href="/show">Songs</a></li>
+            <li><a href="/top">Top 20 Ranking</a></li>
+        </ul>
+    </nav>
+    <p th:text="'Hello, ' + ${name} + '!'"  hidden/>
+    <img src="https://orig00.deviantart.net/abc7/f/2016/074/a/1/welcome__by_tainted_adopts-d9v7sgb.png"/>
+</body>
+</html>

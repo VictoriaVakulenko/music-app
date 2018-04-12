@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="/css/table.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
+</head>
+<body>
+
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/admin">Manage Users</a>
+    <a href="/admin/content">Manage Content</a>
+    <a href="/admin/db">DB logs</a>
+</div>
+
+<br/>
+
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+
+<h2 align="center">Manage Users</h2>
+
+<div align="center" id="main">
+<table id="hor-minimalist-b">
+    <tr align="center">
+        <th>Login</th>
+        <th>Email</th>
+        <th>Roles</th>
+        <th>Action</th>
+    </tr>
+    <tr th:each="user :${users}">
+        <td th:utext = "${user.login}"></td>
+        <td th:utext = "${user.email}"></td>
+        <td th:utext = "${user.roles}" style='white-space: nowrap'></td>
+        <td style='white-space: nowrap'>
+            <a th:href="@{/delete_user/__${user.id}__}" class="btn btn-danger">
+                <span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;Delete
+            </a>
+        </td>
+    </tr>
+</table>
+</div>
+
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+    }
+</script>
+
+</body>
+</html>

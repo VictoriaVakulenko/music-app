@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Page</title>
+    <link rel="stylesheet" href="/css/table.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a th:href="@{/logout}"/>Logout</a></li>
+    </ul>
+</nav>
+<br/>
+<span><p>Hi,<b><span th:utext="${username}"></span></b>!</p></span>
+    <form class="form-inline" th:action="@{/user}" method="post" th:object="${playlist}">
+        <div class="col-sm-9">
+            <label for="playlist_name">Playlist name: </label>
+            <input type="text" class="form-control" id="playlist_name" th:field="${playlist.name}">
+            <button type="submit" class="btn btn-primary">Add Playlist</button>
+        </div>
+    </form>
+<div th:if="${playlists.size() != null}">
+    <table id="hor-minimalist-b">
+        <tr>
+            <th>Playlist</th>
+            <th>Song Amount</th>
+        </tr>
+        <tr th:each = "p : ${playlists}">
+            <td th:utext="${p.name}"></td>
+            <td>0</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
