@@ -21,6 +21,7 @@ public interface SongRepository extends JpaRepository<Song, Long> {
     @Query("select  s from Song s where  s.name =:name")
     Song findByName(@Param("name") String name);
 
+
     @Modifying(clearAutomatically = true)
     @Query("update Song  s SET s.name =:name, s.description =:description, s.performer =:performer where s.id =:id")
     void updateSong(@Param("name") String name, @Param("description") String description,
